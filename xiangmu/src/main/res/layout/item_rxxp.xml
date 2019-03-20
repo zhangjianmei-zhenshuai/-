@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    //卡片布局
+    <android.support.v7.widget.CardView
+        android:layout_width="105dp"
+        android:layout_height="166dp"
+        android:layout_margin="8dp"
+        app:cardElevation="4dp"
+        app:cardCornerRadius="8dp">
+        //商品图片
+        <ImageView
+            android:id="@+id/img_rxxp"
+            android:layout_width="85dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="5dp"
+            android:layout_gravity="center_horizontal"
+            android:src="@mipmap/fangdajing"/>
+        //商品名称
+        <TextView
+            android:id="@+id/tv_rxxp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="115dp"
+            android:gravity="center_horizontal"
+            android:maxEms="8"
+            android:singleLine="true"
+            android:ellipsize="end"
+            android:text="商品名称"/>
+        //商品价格
+        <TextView
+            android:id="@+id/tv_rxxp_price"
+            android:layout_width="match_parent"
+            android:gravity="center_horizontal"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="140dp"
+            android:textSize="14sp"
+            android:textColor="#f00"
+            android:text="商品价格"/>
+    </android.support.v7.widget.CardView>
+
+</LinearLayout>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:gravity="center_horizontal"
+    android:orientation="horizontal">
+
+    //卡片式布局
+    <android.support.v7.widget.CardView
+        android:layout_width="312dp"
+        android:layout_height="118dp"
+        android:layout_margin="5dp"
+        app:cardElevation="4dp"
+        app:cardCornerRadius="8dp">
+    //图片
+    <ImageView
+        android:id="@+id/img_mlss"
+        android:layout_width="85dp"
+        android:layout_height="98dp"
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="10dp"
+        android:src="@drawable/btn_wode"/>
+    //名称和价格
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="98dp"
+        android:layout_marginLeft="115dp"
+        android:layout_gravity="center_vertical"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/tv_mlss_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:maxEms="10"
+            android:maxLines="2"
+            android:ellipsize="end"
+            android:text="名称"/>
+        <TextView
+            android:id="@+id/tv_mlss_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:textSize="14sp"
+            android:textColor="#ff0000"
+            android:text="价格"/>
+    </LinearLayout>
+    </android.support.v7.widget.CardView>
+
+</LinearLayout>

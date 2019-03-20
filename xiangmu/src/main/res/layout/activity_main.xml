@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/login_register_background"
+    tools:context=".ui.activity.MainActivity"
+    android:orientation="vertical">
+
+    //手机号  横向布局
+    <LinearLayout
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="160dp"
+        android:layout_gravity="center_horizontal"
+        android:orientation="horizontal">
+        //小手机的图片
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@mipmap/login_icon_phone"/>
+        //手机号输入框
+        <EditText
+            android:id="@+id/ed_login_phone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="手机号"
+            android:layout_gravity="center_vertical"
+            android:textSize="18sp"
+            android:layout_marginLeft="20dp"
+            android:digits="1234567890."
+            android:background="@null"/>
+    </LinearLayout>
+
+    //下划线
+    <TextView
+        android:layout_width="280dp"
+        android:layout_height="1dp"
+        android:layout_marginTop="10dp"
+        android:layout_gravity="center_horizontal"
+        android:background="#fff"/>
+
+    //密码  横向布局
+    <LinearLayout
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_gravity="center_horizontal"
+        android:orientation="horizontal">
+        //小锁子的图片
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:background="@mipmap/login_icon_lock"/>
+        //登录密码输入框
+        <EditText
+            android:id="@+id/ed_login_pwd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="登录密码"
+            android:layout_gravity="center_vertical"
+            android:textSize="18sp"
+            android:layout_marginLeft="20dp"
+            android:background="@null"/>
+        //小眼睛图片
+        <ImageView
+            android:id="@+id/img_login_eye"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@mipmap/login_icon_eye"
+            android:layout_gravity="center_vertical"/>
+    </LinearLayout>
+    //下划线
+    <TextView
+        android:layout_width="280dp"
+        android:layout_height="1dp"
+        android:layout_marginTop="10dp"
+        android:layout_gravity="center_horizontal"
+        android:background="#fff"/>
+
+    //记住密码和快速注册
+    <LinearLayout
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center_horizontal"
+        android:orientation="horizontal">
+        <CheckBox
+            android:id="@+id/checkBox1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="记住密码" />
+        <TextView
+            android:id="@+id/tv_login_kszc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#fff"
+            android:textSize="14sp"
+            android:text="快速注册"/>
+    </LinearLayout>
+
+    //登录按钮
+    <Button
+        android:id="@+id/btn_login"
+        android:layout_width="280dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="50dp"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/btn_shape"
+        android:textColor="#ff5f71"
+        android:textSize="18sp"
+        android:text="登录"/>
+
+
+    //qq登录
+    <ImageView
+        android:id="@+id/img_qq"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="60dp"
+        android:src="@drawable/qq_icon"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="使用qq登录"/>
+
+</LinearLayout>

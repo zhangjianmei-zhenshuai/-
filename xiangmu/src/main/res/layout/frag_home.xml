@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    //菜单和放大镜
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:orientation="horizontal">
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginLeft="24dp"
+            android:layout_gravity="center_vertical"
+            android:src="@mipmap/common_btn_menu"/>
+        //空的文本(占位作用)
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text=""/>
+        <ImageView
+            android:id="@+id/img_sousuo"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginRight="24dp"
+            android:layout_gravity="center_vertical"
+            android:src="@mipmap/fangdajing"/>
+    </LinearLayout>
+
+    //整个页面滑动
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            //=================魅族banner轮播============
+            <com.zhouwei.mzbanner.MZBannerView
+                android:id="@+id/banner"
+                android:layout_width="match_parent"
+                android:layout_height="160dp"
+                android:layout_marginTop="20dp"
+                app:open_mz_mode="true"
+                app:middle_page_cover="false"
+                app:canLoop="true"
+                app:indicatorAlign="center"/>
+
+            //==================热销新品=======================
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_marginTop="30dp"
+                android:gravity="center"
+                android:textSize="16sp"
+                android:textColor="#ff5f57"
+                android:background="@mipmap/bg_rxxp_syf"
+                android:text="热销新品"/>
+            //RecyclerView--展示热销新品
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal">
+            </android.support.v7.widget.RecyclerView>
+
+            //==================魔力时尚=======================
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:textSize="16sp"
+                android:textColor="#ff5f57"
+                android:background="@mipmap/bg_mlss_syf"
+                android:text="魔丽时尚"/>
+            //RecyclerView--展示魔力时尚
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rv_mlss"
+                android:layout_marginTop="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            </android.support.v7.widget.RecyclerView>
+
+            //==================品质生活=======================
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:textSize="16sp"
+                android:textColor="#ff5f57"
+                android:background="@mipmap/bg_pzsh_syf"
+                android:text="品质生活"/>
+            //RecyclerView--展示品质生活
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rv_pzsh"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            </android.support.v7.widget.RecyclerView>
+        </LinearLayout>
+    </ScrollView>
+
+
+
+</LinearLayout>
