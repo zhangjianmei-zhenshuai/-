@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.activity.WalletActivity"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="312dp"
+        android:layout_height="156dp"
+        android:layout_marginTop="20dp"
+        android:background="@mipmap/bg_qianbao"
+        android:layout_gravity="center_horizontal"
+        android:orientation="vertical">
+        //余额
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            android:textSize="18sp"
+            android:layout_marginLeft="20dp"
+            android:textColor="#343434"
+            android:text="余额"/>
+        //数字
+        <TextView
+            android:id="@+id/tv_money"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:textSize="58sp"
+            android:layout_marginLeft="20dp"
+            android:textColor="#343434"
+            android:text="100.00"/>
+    </LinearLayout>
+
+    //消费金额|消费时间
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="10dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textColor="#343434"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="消费金额"/>
+        <TextView
+            android:layout_width="2dp"
+            android:layout_height="20dp"
+            android:layout_gravity="center_vertical"
+            android:background="#666"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="18sp"
+            android:textColor="#343434"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="消费时间"/>
+    </LinearLayout>
+
+    //消费明细
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_wallet"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </android.support.v7.widget.RecyclerView>
+
+    //如果没有消费历史
+    <TextView
+        android:id="@+id/tv_wallet_jilu"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:textSize="40sp"
+        android:gravity="center"
+        android:text="暂无消费记录哦~"/>
+
+
+
+</LinearLayout>

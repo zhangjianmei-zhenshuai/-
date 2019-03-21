@@ -39,6 +39,7 @@ public class MainActivity extends AppCompatActivity implements Contract_Login.Lo
     private SharedPreferences sp;
     private CheckBox checkBox1;
     private ImageView img_qq;
+    private String pwd;
 
 
 
@@ -176,9 +177,9 @@ public class MainActivity extends AppCompatActivity implements Contract_Login.Lo
             public void onClick(View v) {
                 //获取到输入框的账号密码,交给P层的方法
                 String phone = ed_login_phone.getText().toString();
-                String pwd = ed_login_pwd.getText().toString();
+                pwd = ed_login_pwd.getText().toString();
                 //账号密码交给P层处理
-                presenter_login.requestData(phone,pwd);
+                presenter_login.requestData(phone, pwd );
             }
         } );
     }
@@ -221,6 +222,7 @@ public class MainActivity extends AppCompatActivity implements Contract_Login.Lo
                         intent.putExtra( "headPic",headPic );intent.putExtra( "nickName",nickName );
                         intent.putExtra( "phone",phone );intent.putExtra( "sessionId",sessionId );
                         intent.putExtra( "sex",sex );intent.putExtra( "userId",userId );
+                        intent.putExtra( "pwd",pwd );intent.putExtra( "userId",userId );
                         startActivity( intent );
                         //判断是否记住密码
                         SharedPreferences.Editor editor = sp.edit();

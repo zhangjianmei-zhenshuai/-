@@ -23,8 +23,9 @@ public class Constant {
     public static final String COMMENT_URL = "http://172.17.8.100/small/commodity/v1/CommodityCommentList";
 
     //圈子列表的接口--GET请求
-    //http://172.17.8.100/small/circle/v1/findCircleList?userId=1010&sessionId=15320748258726&page=1&count=5
     public static final String QUZNZI_URL = "http://172.17.8.100/small/circle/v1/findCircleList";
 
+    //查询用户钱包接口
+    public static final String WALLET_URL = "http://172.17.8.100/small/user/verify/v1/findUserWallet";
 
 }

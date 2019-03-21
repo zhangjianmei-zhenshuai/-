@@ -64,8 +64,7 @@ public class OkHttpUtils {
     //网络请求OkHttp--GET请求方式
     public static void getGetJson(String url, Callback callback){
         //创建OKHttp的对象
-        OkHttpClient build = new OkHttpClient.Builder()
-                .build();
+        OkHttpClient build = new OkHttpClient.Builder().build();
         Request request = new Request.Builder()
                 .url( url )
                 .build();

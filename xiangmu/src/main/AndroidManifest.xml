@@ -46,7 +46,9 @@
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
         <activity android:name=".ui.activity.GoodDetailsActivity" />
-        <activity android:name=".ui.activity.SearchActivity"></activity>
+        <activity android:name=".ui.activity.SearchActivity" />
+        <activity android:name=".ui.activity.WalletActivity" />
+        <activity android:name=".ui.activity.DataActivity"></activity>
     </application>
 
 </manifest>

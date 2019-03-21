@@ -63,4 +63,8 @@ dependencies {
 //SmartRefreshLayout ---recyclerview的上下拉
     implementation 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0-alpha-19'
     implementation 'com.scwang.smartrefresh:SmartRefreshHeader:1.1.0-alpha-19'
+//okgo依赖
+    implementation 'com.lzy.net:okgo:3.0.4'
+    //Fresco图片加载框架
+    implementation 'com.facebook.fresco:fresco:1.12.1'
 }

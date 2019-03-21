@@ -2,6 +2,7 @@ package zjm.com.xiangmu.ui.activity;
 
 import android.app.Application;
 
+import com.facebook.drawee.backends.pipeline.Fresco;
 import com.umeng.commonsdk.UMConfigure;
 import com.umeng.socialize.PlatformConfig;
 
@@ -9,6 +10,8 @@ public class APP extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+        Fresco.initialize( this );//初始化Fresco  上下文&build
+
         UMConfigure.init(this,"5c6e41f9f1f556774100094c"
                 ,"umeng",UMConfigure.DEVICE_TYPE_PHONE,"");//58edcfeb310c93091c000be2 5965ee00734be40b580001a0
 

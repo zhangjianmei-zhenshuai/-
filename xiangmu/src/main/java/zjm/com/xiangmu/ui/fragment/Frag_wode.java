@@ -9,26 +9,76 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+import butterknife.Unbinder;
 import zjm.com.xiangmu.R;
+import zjm.com.xiangmu.ui.activity.DataActivity;
+import zjm.com.xiangmu.ui.activity.WalletActivity;
 
 public class Frag_wode extends Fragment {
+    @BindView(R.id.my_Wallet)
+    LinearLayout my_wallet;//我的钱包
+    Unbinder unbinder;
+    @BindView(R.id.my_data)
+    LinearLayout my_data;//个人资料
+    private String sessionId;
+    private int userId;
+    private String headPic;
+    private String nickName;
+    private String pwd;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate( R.layout.frag_wode, container, false );
+        unbinder = ButterKnife.bind( this, view );
         TextView tv_my_name = view.findViewById( R.id.tv_my_name );
         ImageView img_my_toux = view.findViewById( R.id.img_my_toux );
         Intent intent = getActivity().getIntent();
-        String headPic = intent.getStringExtra( "headPic" );
-        String nickName = intent.getStringExtra( "nickName" );
+        headPic = intent.getStringExtra( "headPic" );        //得到头像
+        nickName = intent.getStringExtra( "nickName" );        //得到name
+        sessionId = intent.getStringExtra( "sessionId" );//得到用户登录凭证
+        pwd = intent.getStringExtra( "pwd" );        //得到用户密码
+        userId = intent.getIntExtra( "userId", 1 );//得到用户id
+
         tv_my_name.setText( nickName );//给name赋值
         Glide.with( getActivity() ).load( headPic ).into( img_my_toux );//给头像赋值
 
-
         return view;
     }
+
+
+    @Override
+    //ButterKnife
+    public void onDestroyView() {
+        super.onDestroyView();
+        unbinder.unbind();
+    }
+
+    //点击事件
+    @OnClick({R.id.my_data, R.id.my_Wallet})
+    public void onViewClicked(View view) {
+        switch (view.getId()) {
+            case R.id.my_data://个人资料
+                Intent intent1 = new Intent( getActivity(), DataActivity.class );
+                intent1.putExtra( "headPic",headPic );//头像
+                intent1.putExtra( "nickName",nickName );//name
+                intent1.putExtra( "pwd",pwd );//密码待传
+                startActivity( intent1 );
+                break;
+            case R.id.my_Wallet://我的钱包
+                Intent intent = new Intent( getActivity(), WalletActivity.class );
+                intent.putExtra( "sessionId", sessionId );
+                intent.putExtra( "userId", userId );
+                startActivity( intent );
+                break;
+        }
+    }//点击事件
 }

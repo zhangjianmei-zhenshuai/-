@@ -37,6 +37,7 @@
 
             //个人资料
             <LinearLayout
+                android:id="@+id/my_data"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="40dp"
@@ -118,6 +119,7 @@
 
             //我的钱包
             <LinearLayout
+                android:id="@+id/my_Wallet"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
