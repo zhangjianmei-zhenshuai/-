@@ -13,6 +13,7 @@ import java.util.List;
 
 import zjm.com.xiangmu.R;
 import zjm.com.xiangmu.data.bean.QuanziBean;
+import zjm.com.xiangmu.data.utils.TimeUtils;
 import zjm.com.xiangmu.ui.activity.Clrcle;
 
 public class QuanAdapter extends BaseQuickAdapter<QuanziBean.ResultBean,BaseViewHolder> {
@@ -24,9 +25,11 @@ public class QuanAdapter extends BaseQuickAdapter<QuanziBean.ResultBean,BaseView
     protected void convert(BaseViewHolder helper, QuanziBean.ResultBean item) {
         ImageView img_quan_tu = helper.getView( R.id.img_quan_tu );
         Clrcle img_quan_toux = helper.getView( R.id.img_quan_toux );
+        long createTime = item.getCreateTime();//发布时间
+        String s = TimeUtils.longToDate( createTime );//转变
         helper.setText( R.id.tv_quan,item.getContent() );//内容
         helper.setText( R.id.tv_quan_nickName,item.getNickName() );//用户昵称
-        helper.setText( R.id.tv_quan_createTime,item.getCreateTime()+"");//发布时间
+        helper.setText( R.id.tv_quan_createTime,s);//发布时间
         helper.setText( R.id.tv_quan_prise,item.getGreatNum()+"");//点赞数
         Glide.with( mContext ).load( item.getHeadPic() ).into( img_quan_toux );//用户头像
         String picurl = item.getImage().toString();

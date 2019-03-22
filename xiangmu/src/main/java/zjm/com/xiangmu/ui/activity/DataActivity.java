@@ -27,7 +27,7 @@ public class DataActivity extends AppCompatActivity {
         Intent intent = getIntent();
         String headPic = intent.getStringExtra( "headPic" );//得到头像
         String nickName = intent.getStringExtra( "nickName" );//得到name
-        String pwd = intent.getStringExtra( "pwd" );//得到棉麻
+        String pwd = intent.getStringExtra( "pwd" );//得到密码
 
 
         tv_data_name.setText(nickName);//给name赋值

@@ -2,30 +2,33 @@ package zjm.com.xiangmu.data;
 
 public class Constant {
     //登录的接口
-    public static final String LOGIN_URL = "http://172.17.8.100/small/user/v1/login";
+    public static final String LOGIN_URL = "http://mobile.bwstudent.com/small/user/v1/login";
 
     //注册的接口
-    public static final String REGISTER_URL = "http://172.17.8.100/small/user/v1/register";
+    public static final String REGISTER_URL = "http://mobile.bwstudent.com/small/user/v1/register";
 
     //banner轮播的接口
-    public static final String BANNER_URL = "http://172.17.8.100/small/commodity/v1/bannerShow";
+    public static final String BANNER_URL = "http://mobile.bwstudent.com/small/commodity/v1/bannerShow";
 
     //首页商品的接口
-    public static final String SHOP_URL = "http://172.17.8.100/small/commodity/v1/commodityList";
+    public static final String SHOP_URL = "http://mobile.bwstudent.com/small/commodity/v1/commodityList";
 
     //商品详情
-    public static final String XIANGQING_URL = "http://172.17.8.100/small/commodity/v1/findCommodityDetailsById";
+    public static final String XIANGQING_URL = "http://mobile.bwstudent.com/small/commodity/v1/findCommodityDetailsById";
 
     //查询商品
-    public static final String QUERY_URL = "http:172.17.8.100/small/commodity/v1/findCommodityByKeyword";
+    public static final String QUERY_URL = "http://mobile.bwstudent.com/small/commodity/v1/findCommodityByKeyword";
 
     //商品评论列表
-    public static final String COMMENT_URL = "http://172.17.8.100/small/commodity/v1/CommodityCommentList";
+    public static final String COMMENT_URL = "http://mobile.bwstudent.com/small/commodity/v1/CommodityCommentList";
 
     //圈子列表的接口--GET请求
-    public static final String QUZNZI_URL = "http://172.17.8.100/small/circle/v1/findCircleList";
+    public static final String QUZNZI_URL = "http://mobile.bwstudent.com/small/circle/v1/findCircleList";
 
     //查询用户钱包接口
-    public static final String WALLET_URL = "http://172.17.8.100/small/user/verify/v1/findUserWallet";
+    public static final String WALLET_URL = "http://mobile.bwstudent.com/small/user/verify/v1/findUserWallet";
+
+    //我的足迹
+    public static final String FOOT_URL = "http://mobile.bwstudent.com/small/commodity/verify/v1/browseList";
 
 }

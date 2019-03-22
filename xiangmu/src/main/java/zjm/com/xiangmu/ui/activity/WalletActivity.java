@@ -82,4 +82,9 @@ public class WalletActivity extends AppCompatActivity implements Contract_My.Vie
             }
         } );
     }
+
+    @Override
+    public void showData_Foot(String message) {
+
+    }
 }

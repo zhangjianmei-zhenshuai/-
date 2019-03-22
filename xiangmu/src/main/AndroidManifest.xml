@@ -48,7 +48,8 @@
         <activity android:name=".ui.activity.GoodDetailsActivity" />
         <activity android:name=".ui.activity.SearchActivity" />
         <activity android:name=".ui.activity.WalletActivity" />
-        <activity android:name=".ui.activity.DataActivity"></activity>
+        <activity android:name=".ui.activity.DataActivity" />
+        <activity android:name=".ui.activity.FootActivity"></activity>
     </application>
 
 </manifest>

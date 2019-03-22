@@ -1,15 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.activity.GoodDetailsActivity"
-    android:orientation="vertical">//商品详情页面
+    android:orientation="vertical">
+
+    //悬浮--加入购物车
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab_jiaru"
+        app:layout_behavior="zjm.com.xiangmu.ui.activity.MyFabBehavior"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_marginBottom="70dp"
+        android:layout_marginRight="5dp"
+        android:clickable="true"
+        app:pressedTranslationZ="8dp"
+        app:backgroundTint="#36cfd0"
+        app:rippleColor="#7f7f7f"
+        app:backgroundTintMode="multiply"
+        app:srcCompat="@drawable/jiaru" />
+
+    //悬浮--买
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab_mai"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_behavior="zjm.com.xiangmu.ui.activity.MyFabBehavior"
+        android:layout_gravity="bottom|end"
+        app:backgroundTint="#36cfd0"
+        app:rippleColor="#7f7f7f"
+        app:backgroundTintMode="multiply"
+        android:layout_marginBottom="10dp"
+        android:layout_marginRight="5dp"
+        android:clickable="true"
+        app:pressedTranslationZ="8dp"
+        app:srcCompat="@drawable/maimai" />
 
 
 //滑动布局
     <ScrollView
+        android:id="@+id/sv"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
     <LinearLayout
@@ -86,6 +117,8 @@
                 android:textSize="12sp"
                 android:text="0.089kg"/>
         </LinearLayout>//商品重量
+
+
         //商品详情
         <TextView
             android:layout_width="wrap_content"
@@ -141,4 +174,4 @@
         </android.support.v7.widget.RecyclerView>
     </LinearLayout>
     </ScrollView>//滑动
-</LinearLayout>
+</android.support.design.widget.CoordinatorLayout>

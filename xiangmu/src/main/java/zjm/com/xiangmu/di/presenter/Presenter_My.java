@@ -27,4 +27,14 @@ public class Presenter_My implements Contract_My.Presenter_Interface<Contract_My
             }
         } );
     }
+
+    @Override
+    public void requestData_Foot(int userId, String sessionId) {
+        model_my.getJson_Foot( userId,sessionId,new Contract_My.Model_Interface.CallBack_Foot() {
+            @Override
+            public void responseData(String message) {
+                view_interface.showData_Foot(message);
+            }
+        } );
+    }
 }

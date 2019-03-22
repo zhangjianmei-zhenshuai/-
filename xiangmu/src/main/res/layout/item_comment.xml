@@ -26,11 +26,12 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
                 //头像
-                <zjm.com.xiangmu.ui.activity.Clrcle
+                <com.facebook.drawee.view.SimpleDraweeView
                     android:id="@+id/img_conmment_toux"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
-                    android:src="@drawable/shangpintu"/>
+                    app:placeholderImage="@mipmap/ic_launcher"
+                    app:roundAsCircle="true"/>
                 //名称
                 <TextView
                     android:id="@+id/tv_comment_name"
@@ -64,12 +65,12 @@
                 android:textColor="#666666"
                 android:text="超级喜欢得颜色啦啦啦啦啦好评"/>//评论
             //商品图片
-            <ImageView
+            <com.facebook.drawee.view.SimpleDraweeView
                 android:id="@+id/img_comment_tup"
                 android:layout_width="140dp"
                 android:layout_height="140dp"
                 android:layout_marginTop="20dp"
-                android:src="@drawable/shangpintu"/>
+                app:placeholderImage="@drawable/shangpintu"/>
         </LinearLayout>
     </android.support.v7.widget.CardView>
 

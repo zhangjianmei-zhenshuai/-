@@ -2,9 +2,12 @@ package zjm.com.xiangmu.ui.activity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.RequiresApi;
+import android.support.design.widget.FloatingActionButton;
+import android.support.v4.widget.NestedScrollView;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -12,6 +15,7 @@ import android.view.View;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.widget.ImageView;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -33,7 +37,6 @@ import zjm.com.xiangmu.data.bean.DetailBean;
 import zjm.com.xiangmu.di.contract.Contract_Detail;
 import zjm.com.xiangmu.di.presenter.Presenter_Detail;
 import zjm.com.xiangmu.ui.adpter.CommentAdapter;
-import zjm.com.xiangmu.ui.adpter.PzshAdapter;
 
 public class GoodDetailsActivity extends AppCompatActivity implements Contract_Detail.Detail_View_Interface {
 
@@ -55,12 +58,19 @@ public class GoodDetailsActivity extends AppCompatActivity implements Contract_D
     TextView tv_commentnum;//评论总数
     @BindView(R.id.rv_commentnum)
     RecyclerView rv_comment;//商品评论列表
+    @BindView(R.id.fab_jiaru)
+    FloatingActionButton fab_jiaru;//悬浮球--加入购物车
+    @BindView(R.id.fab_mai)
+    FloatingActionButton fab_mai;//悬浮球--买
+    @BindView(R.id.sv)
+    ScrollView sv;//滑动ScrollView
     private Presenter_Detail presenter_detail;
     ArrayList tupian_list = new ArrayList<>();//图片集合
-    private int page=1;//页数
-    private int count=10;//总数
+    private int page = 1;//页数
+    private int count = 10;//总数
 
 
+    @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate( savedInstanceState );
@@ -72,8 +82,12 @@ public class GoodDetailsActivity extends AppCompatActivity implements Contract_D
         presenter_detail = new Presenter_Detail();        //新建P层
         presenter_detail.attahView( this );        //绑定
         presenter_detail.requestData( commodityId );        //请求数据
-        presenter_detail.requestData_Comment(commodityId,page,count);        //请求数据--商品评论
+        presenter_detail.requestData_Comment( commodityId, page, count );        //请求数据--商品评论
+
+
+
     }
+
 
     //点击返回按钮
     @OnClick(R.id.img_detail_return)
@@ -147,8 +161,22 @@ public class GoodDetailsActivity extends AppCompatActivity implements Contract_D
                 //设置适配器
                 CommentAdapter commentAdapter = new CommentAdapter( R.layout.item_comment, comment_list );
                 rv_comment.setAdapter( commentAdapter );
+
             }
         } );
+    }
+
+    //点击事件 --加入和购买
+    @OnClick({R.id.fab_jiaru, R.id.fab_mai})
+    public void onViewClicked(View view) {
+        switch (view.getId()) {
+            case R.id.fab_jiaru:
+                Toast.makeText( this, "加入", Toast.LENGTH_SHORT ).show();
+                break;
+            case R.id.fab_mai:
+                Toast.makeText( this, "购买", Toast.LENGTH_SHORT ).show();
+                break;
+        }
     }
 
     //轮播适配器
@@ -169,5 +197,7 @@ public class GoodDetailsActivity extends AppCompatActivity implements Contract_D
             Glide.with( context ).load( s ).into( mImageView );
         }
     }//轮播适配器
+
+
 
 }
