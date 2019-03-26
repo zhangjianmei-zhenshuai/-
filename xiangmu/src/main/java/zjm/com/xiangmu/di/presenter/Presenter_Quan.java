@@ -1,5 +1,8 @@
 package zjm.com.xiangmu.di.presenter;
 
+import java.util.List;
+
+import zjm.com.xiangmu.data.bean.QuanziBean;
 import zjm.com.xiangmu.di.contract.Contract_Quan;
 import zjm.com.xiangmu.di.model.Model_Quan;
 
@@ -19,11 +22,11 @@ public class Presenter_Quan implements Contract_Quan.Quan_Presenter_Interface<Co
     }
 
     @Override
-    public void requestData() {
-        model_quan.getJson( new Contract_Quan.Quan_Model_Interface.CallBack_Quan() {
+    public void requestData(int userId, String sessionId) {
+        model_quan.getJson( userId,sessionId,new Contract_Quan.Quan_Model_Interface.CallBack_Quan() {
             @Override
-            public void responseData(String message) {
-                quan_view_interface.showData(message);
+            public void responseData(List<QuanziBean.ResultBean> quan_list) {
+                quan_view_interface.showData(quan_list);
             }
         });
     }

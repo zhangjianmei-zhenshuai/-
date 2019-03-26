@@ -26,11 +26,12 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:orientation="horizontal">
-            <zjm.com.xiangmu.ui.activity.Clrcle
+            <com.facebook.drawee.view.SimpleDraweeView
                 android:id="@+id/img_quan_toux"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:src="@drawable/shangpintu"/>
+                android:layout_width="@dimen/dp_50"
+                android:layout_height="@dimen/dp_50"
+                app:roundAsCircle="true"
+                app:placeholderImage="@drawable/shangpintu"/>
             <TextView
                 android:id="@+id/tv_quan_nickName"
                 android:layout_width="0dp"
@@ -40,6 +41,7 @@
                 android:layout_marginLeft="16dp"
                 android:textSize="14sp"
                 android:textColor="#666666"
+                android:singleLine="true"
                 android:text="用户昵称"/>
             <TextView
                 android:id="@+id/tv_quan_createTime"
@@ -71,11 +73,11 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:orientation="horizontal">
-            <ImageView
+            <com.facebook.drawee.view.SimpleDraweeView
                 android:id="@+id/img_quan_tu"
-                android:layout_width="140dp"
-                android:layout_height="140dp"
-                android:src="@drawable/shangpintu"/>
+                android:layout_width="@dimen/dp_140"
+                android:layout_height="@dimen/dp_140"
+                app:placeholderImage="@drawable/shangpintu" />
         </LinearLayout>//商品图片
 
         //点赞

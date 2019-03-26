@@ -31,4 +31,8 @@ public class Constant {
     //我的足迹
     public static final String FOOT_URL = "http://mobile.bwstudent.com/small/commodity/verify/v1/browseList";
 
+    //全部的接口
+    public static final String QUAN_URL = "http://mobile.bwstudent.com/";
+
+
 }

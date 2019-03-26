@@ -58,6 +58,7 @@ public class Frag_home extends Fragment implements Contract_rxxp.Rxxp_View_Inter
         rv_pzsh = view.findViewById( R.id.rv_pzsh );
         banner = view.findViewById( R.id.banner );
 
+
         //当我进入到此页面时,就开始请示网络数据
         //新建P层
         Contract_rxxp.Rxxp_Presenter_Interface presenter_rxxp = new Presenter_Rxxp();
@@ -174,12 +175,19 @@ public class Frag_home extends Fragment implements Contract_rxxp.Rxxp_View_Inter
     }
 
 
-    //点击放大镜
-    @OnClick(R.id.img_sousuo)
-    public void onViewClicked() {
-        Intent intent = new Intent( getActivity(), SearchActivity.class );
-        startActivity( intent );
+
+
+    //点击事件
+    @OnClick({R.id.img_sousuo})
+    public void onViewClicked(View view) {
+        switch (view.getId()) {
+            case R.id.img_sousuo:
+                Intent intent = new Intent( getActivity(), SearchActivity.class );
+                startActivity(intent);
+                break;
+        }
     }
+
 
     public static class BannerViewHolder implements MZViewHolder<ShopBean.ResultBean> {
         private ImageView mImageView;

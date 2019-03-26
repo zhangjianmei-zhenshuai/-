@@ -7,8 +7,10 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
+import android.view.View;
 import android.widget.Toast;
 
+import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.google.gson.Gson;
 
 import java.util.List;
@@ -27,6 +29,7 @@ public class FootActivity extends AppCompatActivity implements Contract_My.View_
     @BindView(R.id.rv_foot)
     RecyclerView rv_foot;
     private Presenter_My presenter_my;
+    private List<FootBean.ResultBean> foot_list;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,7 +57,8 @@ public class FootActivity extends AppCompatActivity implements Contract_My.View_
                 //Toast.makeText( FootActivity.this, ""+message, Toast.LENGTH_SHORT ).show();
                 Gson gson = new Gson();
                 FootBean footBean = gson.fromJson( message, FootBean.class );
-                List<FootBean.ResultBean> foot_list = footBean.getResult();//足迹数据源
+                //足迹数据源
+                foot_list = footBean.getResult();
 
                 if (foot_list.size()==0) {//如果没有足迹
                     Toast.makeText( FootActivity.this, "当前还没有足迹哦", Toast.LENGTH_SHORT ).show();
@@ -65,8 +69,20 @@ public class FootActivity extends AppCompatActivity implements Contract_My.View_
                 //StaggeredGridLayoutManager staggeredGridLayoutManager = new StaggeredGridLayoutManager( 2, StaggeredGridLayoutManager.VERTICAL );
                 rv_foot.setLayoutManager( gridLayoutManager );
                 //设置适配器
-                FootAdapter footAdapter = new FootAdapter( R.layout.item_foot,foot_list );
+                FootAdapter footAdapter = new FootAdapter( R.layout.item_foot, foot_list );
                 rv_foot.setAdapter( footAdapter );
+
+                //条目点击跳转到详情页面
+                footAdapter.setOnItemClickListener( new BaseQuickAdapter.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
+                        int commodityId = foot_list.get( position ).getCommodityId();//商品id
+                        //跳转到详情页面
+                        Intent intent = new Intent( FootActivity.this, GoodDetailsActivity.class );
+                        intent.putExtra( "commodityId", commodityId );
+                        startActivity( intent );
+                    }
+                } );//条目点击跳转到详情页面
             }
         } );
     }

@@ -11,7 +11,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import com.google.gson.Gson;
 
@@ -42,7 +41,7 @@ public class Frag_quanzi extends Fragment implements Contract_Quan.Quan_View_Int
         //新建P层 绑定 调用P层
         presenter_quan = new Presenter_Quan();
         presenter_quan.attahView( this );
-        presenter_quan.requestData( );
+        presenter_quan.requestData( userId,sessionId);
 
 
 
@@ -51,20 +50,15 @@ public class Frag_quanzi extends Fragment implements Contract_Quan.Quan_View_Int
 
     @Override
     //数据刷新
-    public void showData(final String message) {
+    public void showData(final List<QuanziBean.ResultBean> quan_list) {
         getActivity().runOnUiThread( new Runnable() {
             @Override
             public void run() {
-                //Toast.makeText( getActivity(), ""+message, Toast.LENGTH_SHORT ).show();
-                //解析数据
-                Gson gson = new Gson();
-                QuanziBean quanziBean = gson.fromJson( message, QuanziBean.class );
-                List<QuanziBean.ResultBean> list = quanziBean.getResult();
                 //给rv_quan设置布局管理器  竖向
                 LinearLayoutManager layoutManager = new LinearLayoutManager( getActivity(), LinearLayoutManager.VERTICAL, false );
                 rv_quan.setLayoutManager( layoutManager );
                 //设置适配器
-                QuanAdapter quanAdapter = new QuanAdapter(R.layout.item_quan,list);
+                QuanAdapter quanAdapter = new QuanAdapter(R.layout.item_quan,quan_list);
                 rv_quan.setAdapter( quanAdapter );
             }
         } );
