@@ -16,6 +16,7 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import zjm.com.xiangmu.R;
+import zjm.com.xiangmu.data.bean.AddressBean;
 import zjm.com.xiangmu.data.bean.WalletBean;
 import zjm.com.xiangmu.di.contract.Contract_My;
 import zjm.com.xiangmu.di.presenter.Presenter_My;
@@ -85,6 +86,11 @@ public class WalletActivity extends AppCompatActivity implements Contract_My.Vie
 
     @Override
     public void showData_Foot(String message) {
+
+    }
+
+    @Override
+    public void showData_Address(List<AddressBean.ResultBean> message) {
 
     }
 }

@@ -13,9 +13,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.chad.library.adapter.base.BaseQuickAdapter;
+import com.example.zhouwei.library.CustomPopWindow;
 import com.google.gson.Gson;
 import com.zhouwei.mzbanner.MZBannerView;
 import com.zhouwei.mzbanner.holder.MZHolderCreator;
@@ -43,6 +45,8 @@ public class Frag_home extends Fragment implements Contract_rxxp.Rxxp_View_Inter
     @BindView(R.id.img_sousuo)
     ImageView img_sousuo;
     Unbinder unbinder;
+    @BindView(R.id.img_popwindow)
+    ImageView img_popwindow;
     private RecyclerView rv;
     private RecyclerView rv_mlss;
     private RecyclerView rv_pzsh;
@@ -175,15 +179,23 @@ public class Frag_home extends Fragment implements Contract_rxxp.Rxxp_View_Inter
     }
 
 
-
-
     //点击事件
-    @OnClick({R.id.img_sousuo})
+    @OnClick({R.id.img_sousuo,R.id.img_popwindow})
     public void onViewClicked(View view) {
         switch (view.getId()) {
-            case R.id.img_sousuo:
+            case R.id.img_sousuo://搜索
                 Intent intent = new Intent( getActivity(), SearchActivity.class );
-                startActivity(intent);
+                startActivity( intent );
+                break;
+            case R.id.img_popwindow://popwindow
+                CustomPopWindow popWindow = new CustomPopWindow.PopupWindowBuilder(getActivity())
+                        .setView(R.layout.item_pop)//显示的布局，还可以通过设置一个View
+                        .setFocusable(true)//是否获取焦点，默认为ture
+                        .setOutsideTouchable(true)//是否PopupWindow 以外触摸dissmiss
+                        .enableBackgroundDark(true) //弹出popWindow时，背景是否变暗
+                        .setBgDarkAlpha(0.5f) // 控制亮度
+                        .create()//创建PopupWindow
+                        .showAsDropDown(img_popwindow,0,10);//显示PopupWindow
                 break;
         }
     }

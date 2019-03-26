@@ -19,8 +19,10 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.Unbinder;
 import zjm.com.xiangmu.R;
+import zjm.com.xiangmu.ui.activity.AddressActivity;
 import zjm.com.xiangmu.ui.activity.DataActivity;
 import zjm.com.xiangmu.ui.activity.FootActivity;
+import zjm.com.xiangmu.ui.activity.QuanActivity;
 import zjm.com.xiangmu.ui.activity.WalletActivity;
 
 public class Frag_wode extends Fragment {
@@ -31,6 +33,10 @@ public class Frag_wode extends Fragment {
     LinearLayout my_data;//个人资料
     @BindView(R.id.my_foot)
     LinearLayout my_foot;//我的足迹
+    @BindView(R.id.my_Quan)
+    LinearLayout my_quan;//我的圈子
+    @BindView(R.id.my_Address)
+    LinearLayout my_address;//我的收货地址
     private String sessionId;
     private int userId;
     private String headPic;
@@ -66,7 +72,7 @@ public class Frag_wode extends Fragment {
     }
 
     //点击事件
-    @OnClick({R.id.my_data, R.id.my_Wallet,R.id.my_foot})
+    @OnClick({R.id.my_data, R.id.my_Wallet, R.id.my_foot,R.id.my_Quan, R.id.my_Address})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.my_data://个人资料
@@ -87,6 +93,18 @@ public class Frag_wode extends Fragment {
                 intent2.putExtra( "sessionId", sessionId );
                 intent2.putExtra( "userId", userId );
                 startActivity( intent2 );
+                break;
+            case R.id.my_Quan://我的圈子
+                Intent intent4 = new Intent( getActivity(), QuanActivity.class );
+                intent4.putExtra( "sessionId", sessionId );
+                intent4.putExtra( "userId", userId );
+                startActivity( intent4 );
+                break;
+            case R.id.my_Address://我的收货地址
+                Intent intent3 = new Intent( getActivity(), AddressActivity.class );
+                intent3.putExtra( "sessionId", sessionId );
+                intent3.putExtra( "userId", userId );
+                startActivity( intent3 );
                 break;
         }
     }//点击事件

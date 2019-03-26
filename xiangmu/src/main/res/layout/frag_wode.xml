@@ -37,7 +37,7 @@
             android:id="@+id/my_data"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/dp_40"
+            android:layout_marginTop="@dimen/dp_70"
             android:orientation="horizontal">
             <ImageView
                 android:layout_width="24dp"
@@ -62,6 +62,7 @@
 
         //我的圈子
         <LinearLayout
+            android:id="@+id/my_Quan"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/dp_20"
@@ -145,6 +146,7 @@
 
         //我的收货地址
         <LinearLayout
+            android:id="@+id/my_Address"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/dp_20"

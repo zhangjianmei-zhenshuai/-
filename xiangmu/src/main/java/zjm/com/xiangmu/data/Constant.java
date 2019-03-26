@@ -1,6 +1,10 @@
 package zjm.com.xiangmu.data;
 
 public class Constant {
+
+    //全部的接口
+    public static final String QUAN_URL = "http://mobile.bwstudent.com/";
+
     //登录的接口
     public static final String LOGIN_URL = "http://mobile.bwstudent.com/small/user/v1/login";
 
@@ -31,8 +35,8 @@ public class Constant {
     //我的足迹
     public static final String FOOT_URL = "http://mobile.bwstudent.com/small/commodity/verify/v1/browseList";
 
-    //全部的接口
-    public static final String QUAN_URL = "http://mobile.bwstudent.com/";
+    //收货地址
+    public static final String ADDRESS_URL = "http://mobile.bwstudent.com/small/user/verify/v1/receiveAddressList";
 
 
 }

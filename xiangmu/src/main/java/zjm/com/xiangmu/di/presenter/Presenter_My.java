@@ -1,5 +1,8 @@
 package zjm.com.xiangmu.di.presenter;
 
+import java.util.List;
+
+import zjm.com.xiangmu.data.bean.AddressBean;
 import zjm.com.xiangmu.di.contract.Contract_My;
 import zjm.com.xiangmu.di.model.Model_My;
 
@@ -34,6 +37,16 @@ public class Presenter_My implements Contract_My.Presenter_Interface<Contract_My
             @Override
             public void responseData(String message) {
                 view_interface.showData_Foot(message);
+            }
+        } );
+    }
+
+    @Override
+    public void requestData_Address(int userId, String sessionId) {
+        model_my.getJson_Address(userId,sessionId, new Contract_My.Model_Interface.CallBack_Address() {
+            @Override
+            public void responseData(List<AddressBean.ResultBean> message) {
+                view_interface.showData_Address(message);
             }
         } );
     }

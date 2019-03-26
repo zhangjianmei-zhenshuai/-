@@ -4,9 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.View;
 import android.widget.Toast;
 
@@ -18,11 +16,11 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import zjm.com.xiangmu.R;
+import zjm.com.xiangmu.data.bean.AddressBean;
 import zjm.com.xiangmu.data.bean.FootBean;
 import zjm.com.xiangmu.di.contract.Contract_My;
 import zjm.com.xiangmu.di.presenter.Presenter_My;
 import zjm.com.xiangmu.ui.adpter.FootAdapter;
-import zjm.com.xiangmu.ui.adpter.WalletAdapter;
 
 public class FootActivity extends AppCompatActivity implements Contract_My.View_Interface {
 
@@ -85,6 +83,11 @@ public class FootActivity extends AppCompatActivity implements Contract_My.View_
                 } );//条目点击跳转到详情页面
             }
         } );
+    }
+
+    @Override
+    public void showData_Address(List<AddressBean.ResultBean> message) {
+
     }
 
     @Override
