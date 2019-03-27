@@ -37,7 +37,7 @@ public class Model_Quan implements Contract_Quan.Quan_Model_Interface {
             }
         } );*/
 
-        //Retrofit请求
+        //Retrofit请求+rxjava
         new Retrofit.Builder()
                 .addConverterFactory( GsonConverterFactory.create() )
                 .addCallAdapterFactory( RxJava2CallAdapterFactory.create() )

@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.text.InputType;
 import android.text.Selection;
 import android.text.Spannable;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -102,6 +103,8 @@ public class MainActivity extends AppCompatActivity implements Contract_Login.Lo
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate( savedInstanceState );
         setContentView( R.layout.activity_main );
+
+        Log.d( "log","1111111111111111111122222222222222222222222333333333333333333333" );
         //查找控件
         tv_login_kszc = (TextView)findViewById( R.id.tv_login_kszc );
         ed_login_phone = (EditText)findViewById( R.id.ed_login_phone );
@@ -250,4 +253,9 @@ public class MainActivity extends AppCompatActivity implements Contract_Login.Lo
         UMShareAPI.get(this).onActivityResult(requestCode, resultCode, data);
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        APP.getRefWatcher().watch(this);//内存检测
+    }
 }

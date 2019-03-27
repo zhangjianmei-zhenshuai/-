@@ -3,13 +3,26 @@ package zjm.com.xiangmu.ui.activity;
 import android.app.Application;
 
 import com.facebook.drawee.backends.pipeline.Fresco;
+import com.squareup.leakcanary.LeakCanary;
+import com.squareup.leakcanary.RefWatcher;
 import com.umeng.commonsdk.UMConfigure;
 import com.umeng.socialize.PlatformConfig;
 
+import zjm.com.xiangmu.data.utils.LogUtil;
+
 public class APP extends Application {
+    private static APP instance;
+    private RefWatcher mRefWatcher;
+
     @Override
     public void onCreate() {
         super.onCreate();
+        LogUtil.init(getApplicationContext());//Log
+
+        //泄漏检测
+        instance = this;
+        mRefWatcher = Constants.DEBUG ?  LeakCanary.install(this) : RefWatcher.DISABLED;
+
         Fresco.initialize( this );//初始化Fresco  上下文&build
 
         UMConfigure.init(this,"5c6e41f9f1f556774100094c"
@@ -28,5 +41,13 @@ public class APP extends Application {
         PlatformConfig.setDing("dingoalmlnohc0wggfedpk");
         PlatformConfig.setVKontakte("5764965","5My6SNliAaLxEm3Lyd9J");
         PlatformConfig.setDropbox("oz8v5apet3arcdy","h7p2pjbzkkxt02a");
+    }
+
+    public static APP getInstance() {//泄漏检测
+        return instance;
+    }
+
+    public static RefWatcher getRefWatcher() {//泄漏检测
+        return getInstance().mRefWatcher;
     }
 }
