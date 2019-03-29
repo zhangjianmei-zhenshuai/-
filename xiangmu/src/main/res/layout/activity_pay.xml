@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.activity.PayActivity"
+    tools:context=".ui.activity.PayActivity">
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:orientation="vertical">
-
-
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -123,9 +125,10 @@
             </RadioGroup>//单选框
         </LinearLayout>
     </android.support.v7.widget.CardView>
-    
+
     //支付按钮
     <Button
+        android:id="@+id/btn_pay"
         android:layout_width="312dp"
         android:layout_height="40dp"
         android:layout_marginTop="100dp"
@@ -133,5 +136,107 @@
         android:background="@drawable/btnpay__shape"
         android:layout_gravity="center_horizontal"
         android:text="确认支付"/>
-
 </LinearLayout>
+
+
+
+    //支付成功布局(默认隐藏)
+    <LinearLayout
+        android:id="@+id/item_pay_succeed"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#5e5e5e"
+        android:alpha="0.8"
+        android:orientation="vertical"
+        android:visibility="gone">
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="152dp"
+            app:placeholderImage="@mipmap/pay_succeed"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:textSize="20sp"
+            android:textColor="#fff"
+            android:layout_gravity="center_horizontal"
+            android:text="支付成功"/>
+        <Button
+            android:id="@+id/btn_back_home"
+            android:layout_width="108dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="60dp"
+            android:textColor="#fff"
+            android:textSize="14sp"
+            android:background="@drawable/btnpay__shape"
+            android:layout_gravity="center_horizontal"
+            android:text="返回主页"/>
+        <Button
+            android:id="@+id/btn_watch_order"
+            android:layout_width="108dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="20dp"
+            android:textColor="#fff"
+            android:textSize="14sp"
+            android:background="@drawable/btnpay__shape"
+            android:layout_gravity="center_horizontal"
+            android:text="查看订单"/>
+    </LinearLayout>
+
+
+    //支付失败布局(默认隐藏)
+    <LinearLayout
+        android:id="@+id/item_pay_error"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#5e5e5e"
+        android:alpha="0.8"
+        android:orientation="vertical"
+        android:visibility="gone">
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="152dp"
+            app:placeholderImage="@mipmap/pay_error"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:textSize="20sp"
+            android:textColor="#fff"
+            android:layout_gravity="center_horizontal"
+            android:text="支付失败"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:textSize="12sp"
+            android:textColor="#fff"
+            android:layout_gravity="center_horizontal"
+            android:text="暂未开通微信与支付宝支付"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:textSize="12sp"
+            android:textColor="#fff"
+            android:layout_gravity="center_horizontal"
+            android:text="请选择余额支付"/>
+        <Button
+            android:id="@+id/btn_go_pay"
+            android:layout_width="108dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="40dp"
+            android:textColor="#fff"
+            android:textSize="14sp"
+            android:background="@drawable/btnpay__shape"
+            android:layout_gravity="center_horizontal"
+            android:text="继续支付"/>
+
+    </LinearLayout>
+
+
+</RelativeLayout>

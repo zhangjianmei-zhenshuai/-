@@ -8,6 +8,8 @@ import android.view.View;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
+import org.greenrobot.eventbus.EventBus;
+
 import zjm.com.xiangmu.R;
 import zjm.com.xiangmu.data.utils.TimeUtils;
 import zjm.com.xiangmu.ui.fragment.Frag_dingdan;
@@ -72,6 +74,7 @@ public class ShouYeActivity extends AppCompatActivity {
                     case R.id.radio3:
                         //显示对应页面
                         transaction1.show( frag_gouwu ).hide( frag_quanzi ).hide( frag_home ).hide( frag_dingdan ).hide( frag_wode );
+                        EventBus.getDefault().post("记得即时刷新");//发送消息
                         break;
                     case R.id.radio4:
                         //显示对应页面

@@ -22,6 +22,10 @@ import zjm.com.xiangmu.di.contract.Contract_My;
 import zjm.com.xiangmu.di.presenter.Presenter_My;
 import zjm.com.xiangmu.ui.adpter.FootAdapter;
 
+/*
+* 我的足迹列表
+* */
+
 public class FootActivity extends AppCompatActivity implements Contract_My.View_Interface {
 
     @BindView(R.id.rv_foot)

@@ -40,6 +40,12 @@ import zjm.com.xiangmu.ui.adpter.MlssAdapter;
 import zjm.com.xiangmu.ui.adpter.MyAdapter;
 import zjm.com.xiangmu.ui.adpter.PzshAdapter;
 
+/*
+* fragment1
+* 首页
+* 轮播  热销新品 魔丽时尚 品质生活...
+* */
+
 public class Frag_home extends Fragment implements Contract_rxxp.Rxxp_View_Interface {
     @BindView(R.id.img_sousuo)
     ImageView img_sousuo;

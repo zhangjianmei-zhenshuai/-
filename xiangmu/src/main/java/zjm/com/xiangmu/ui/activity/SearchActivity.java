@@ -37,6 +37,10 @@ import zjm.com.xiangmu.di.contract.Contract_Search;
 import zjm.com.xiangmu.di.presenter.Presenter_Search;
 import zjm.com.xiangmu.ui.adpter.QueryAdapter;
 
+/*
+* 搜索商品
+* */
+
 public class SearchActivity extends AppCompatActivity implements Contract_Search.View_Interface {
 
     @BindView(R.id.img_back)

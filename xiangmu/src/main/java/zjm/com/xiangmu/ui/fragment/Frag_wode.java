@@ -24,7 +24,11 @@ import zjm.com.xiangmu.ui.activity.DataActivity;
 import zjm.com.xiangmu.ui.activity.FootActivity;
 import zjm.com.xiangmu.ui.activity.QuanActivity;
 import zjm.com.xiangmu.ui.activity.WalletActivity;
-
+/*
+* fragment5
+* 我的页面
+* 个人资料  我的钱包  我的足迹  我的圈子  我的收货地址
+* */
 public class Frag_wode extends Fragment {
     @BindView(R.id.my_Wallet)
     LinearLayout my_wallet;//我的钱包

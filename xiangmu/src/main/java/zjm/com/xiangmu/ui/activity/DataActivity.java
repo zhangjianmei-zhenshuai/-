@@ -10,6 +10,9 @@ import com.facebook.drawee.view.SimpleDraweeView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import zjm.com.xiangmu.R;
+/*
+* 个人资料
+* */
 
 public class DataActivity extends AppCompatActivity {
     @BindView(R.id.img_data_toux)

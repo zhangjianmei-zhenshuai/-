@@ -126,6 +126,7 @@ public class OkorderActivity extends AppCompatActivity implements Contract_My.Vi
         intent.putExtra( "userId", userId );
         intent.putExtra( "commodityId", commodityId );
         startActivity( intent );
+        finish();
     }//点击事件
 
 

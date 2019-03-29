@@ -44,6 +44,11 @@ public class Constant {
     //支付
     public static final String PAY_URL = "http://mobile.bwstudent.com/small/order/verify/v1/pay";
 
+    //查询购物车
+    public static final String CART_URL = "http://mobile.bwstudent.com/small/order/verify/v1/findShoppingCart";
+
+    //同步购物车
+    public static final String SYNC_URL = "http://mobile.bwstudent.com/small/order/verify/v1/syncShoppingCart";
 
 
 }

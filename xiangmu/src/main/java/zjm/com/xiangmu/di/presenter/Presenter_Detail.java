@@ -1,5 +1,7 @@
 package zjm.com.xiangmu.di.presenter;
 
+import zjm.com.xiangmu.data.bean.Cart_Bean;
+import zjm.com.xiangmu.data.bean.Sync_Bean;
 import zjm.com.xiangmu.di.contract.Contract_Detail;
 import zjm.com.xiangmu.di.model.Model_Detail;
 
@@ -34,6 +36,26 @@ public class Presenter_Detail implements Contract_Detail.Detail_Presenter_Interf
             @Override
             public void responseData(String message) {
                 detail_view_interface.showData_Comment(message);
+            }
+        } );
+    }
+
+    @Override
+    public void requestData_Cart(int userId, String sessionId) {
+        model_detail.getJson_Cart( userId,sessionId,new Contract_Detail.Detail_Model_Interface.CallBack_Cart() {
+            @Override
+            public void responseData(Cart_Bean cart_bean) {
+                detail_view_interface.showData_Cart(cart_bean);
+            }
+        } );
+    }
+
+    @Override
+    public void requestData_Sync(int userId, String sessionId, String data) {
+        model_detail.getJson_Sync( userId,sessionId,data,new Contract_Detail.Detail_Model_Interface.CallBack_Sync() {
+            @Override
+            public void responseData(Sync_Bean sync_bean) {
+                detail_view_interface.showData_Sync(sync_bean);
             }
         } );
     }

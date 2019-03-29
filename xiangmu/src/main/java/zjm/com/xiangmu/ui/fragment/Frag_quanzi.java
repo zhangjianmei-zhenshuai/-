@@ -22,6 +22,10 @@ import zjm.com.xiangmu.di.contract.Contract_Quan;
 import zjm.com.xiangmu.di.presenter.Presenter_Quan;
 import zjm.com.xiangmu.ui.adpter.QuanAdapter;
 
+/*
+* 圈子列表
+* */
+
 public class Frag_quanzi extends Fragment implements Contract_Quan.Quan_View_Interface {
 
     private Presenter_Quan presenter_quan;
@@ -42,8 +46,6 @@ public class Frag_quanzi extends Fragment implements Contract_Quan.Quan_View_Int
         presenter_quan = new Presenter_Quan();
         presenter_quan.attahView( this );
         presenter_quan.requestData( userId,sessionId);
-
-
 
         return view;
     }

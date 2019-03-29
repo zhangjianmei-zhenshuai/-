@@ -10,6 +10,10 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewPropertyAnimator;
 
+/*
+* 自定义动画效果
+* */
+
 public class MyFabBehavior  extends CoordinatorLayout.Behavior<View> {
 
     private static final TimeInterpolator INTERPOLATOR =  new FastOutSlowInInterpolator();

@@ -7,11 +7,14 @@ import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.Header;
 import retrofit2.http.POST;
+import retrofit2.http.PUT;
 import retrofit2.http.Query;
 import zjm.com.xiangmu.data.bean.AddressBean;
+import zjm.com.xiangmu.data.bean.Cart_Bean;
 import zjm.com.xiangmu.data.bean.Order_Bean;
 import zjm.com.xiangmu.data.bean.Pay_Bean;
 import zjm.com.xiangmu.data.bean.QuanziBean;
+import zjm.com.xiangmu.data.bean.Sync_Bean;
 
 public interface ApiServices {
     //圈子列表
@@ -29,4 +32,13 @@ public interface ApiServices {
     //支付
     @POST("small/order/verify/v1/pay")
     Observable<Pay_Bean> getPay (@Header( "userId" )int userId, @Header( "sessionId" ) String sessionId, @Query("orderId") String orderId, @Query("payType") int payType);
+
+    //查询购物车
+    @GET("small/order/verify/v1/findShoppingCart")
+    Observable<Cart_Bean> getCart (@Header( "userId" ) int userId, @Header( "sessionId" ) String sessionId);
+
+    //同步购物车数据
+    @PUT("small/order/verify/v1/syncShoppingCart")
+    Observable<Sync_Bean> getSync (@Header( "userId" ) int userId, @Header( "sessionId" ) String sessionId,@Query( "data" ) String data);
+
 }

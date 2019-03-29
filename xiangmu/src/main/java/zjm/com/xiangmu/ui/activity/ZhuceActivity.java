@@ -20,6 +20,10 @@ import zjm.com.xiangmu.R;
 import zjm.com.xiangmu.di.contract.Contract_Register;
 import zjm.com.xiangmu.di.presenter.Presenter_Register;
 
+/*
+* 注册
+* */
+
 public class ZhuceActivity extends AppCompatActivity implements Contract_Register.Register_View_Interface {
 
     private TextView tv_register_ljdl;

@@ -29,6 +29,9 @@ import zjm.com.xiangmu.R;
 import zjm.com.xiangmu.di.contract.Contract_Login;
 import zjm.com.xiangmu.di.presenter.Presenter_Login;
 
+/*
+* 登录
+* */
 public class MainActivity extends AppCompatActivity implements Contract_Login.Login_View_Interface {
 
     private TextView tv_login_kszc;

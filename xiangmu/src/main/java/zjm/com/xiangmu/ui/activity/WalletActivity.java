@@ -22,6 +22,9 @@ import zjm.com.xiangmu.di.contract.Contract_My;
 import zjm.com.xiangmu.di.presenter.Presenter_My;
 import zjm.com.xiangmu.ui.adpter.WalletAdapter;
 
+/*
+* 我的钱包
+* */
 public class WalletActivity extends AppCompatActivity implements Contract_My.View_Interface {
 
     @BindView(R.id.tv_money)

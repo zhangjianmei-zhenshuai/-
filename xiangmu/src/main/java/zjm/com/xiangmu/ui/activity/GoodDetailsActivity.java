@@ -6,7 +6,6 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.RequiresApi;
 import android.support.design.widget.FloatingActionButton;
-import android.support.v4.widget.NestedScrollView;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -32,8 +31,11 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import zjm.com.xiangmu.R;
+import zjm.com.xiangmu.data.bean.Cart_Bean;
 import zjm.com.xiangmu.data.bean.CommentBean;
 import zjm.com.xiangmu.data.bean.DetailBean;
+import zjm.com.xiangmu.data.bean.ShoppingBeanAdd;
+import zjm.com.xiangmu.data.bean.Sync_Bean;
 import zjm.com.xiangmu.di.contract.Contract_Detail;
 import zjm.com.xiangmu.di.presenter.Presenter_Detail;
 import zjm.com.xiangmu.ui.adpter.CommentAdapter;
@@ -183,12 +185,48 @@ public class GoodDetailsActivity extends AppCompatActivity implements Contract_D
         } );
     }
 
+    @Override
+    //刷新数据-查询购物车
+    public void showData_Cart(final Cart_Bean cart_bean) {
+        runOnUiThread( new Runnable() {
+            private List<Cart_Bean.ResultBean> cahxun_list;
+            @Override
+            public void run() {
+                //Toast.makeText( GoodDetailsActivity.this, ""+cart_bean.getMessage(), Toast.LENGTH_SHORT ).show();
+                cahxun_list = cart_bean.getResult();
+                ArrayList<ShoppingBeanAdd> list = new ArrayList<>();
+                for (int i = 0; i < cahxun_list.size(); i++) {
+                    ShoppingBeanAdd beanAdd = new ShoppingBeanAdd( cahxun_list.get( i ).getCommodityId(), 1 );
+                    list.add( beanAdd );
+                }
+                list.add( new ShoppingBeanAdd( commodityId,1 ) );
+                Gson gson = new Gson();
+                String data = gson.toJson( list );
+
+                //请求同步购物车接口
+                presenter_detail.requestData_Sync(userId,sessionId,data);
+            }
+        } );
+    }
+
+    @Override
+    //同步购物车
+    public void showData_Sync(final Sync_Bean sync_bean) {
+        runOnUiThread( new Runnable() {
+            @Override
+            public void run() {
+                Toast.makeText( GoodDetailsActivity.this, ""+sync_bean.getMessage(), Toast.LENGTH_SHORT ).show();
+            }
+        } );
+    }
+
     //点击事件 --加入和购买
     @OnClick({R.id.fab_jiaru, R.id.fab_mai})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.fab_jiaru:
-                Toast.makeText( this, "加入", Toast.LENGTH_SHORT ).show();
+                //先查询一遍购物车
+                presenter_detail.requestData_Cart(userId,sessionId);
                 break;
             case R.id.fab_mai:
                 //当我点击购买的时候  跳转到确认订单的页面
@@ -200,6 +238,7 @@ public class GoodDetailsActivity extends AppCompatActivity implements Contract_D
                 intent.putExtra( "userId",userId );
                 intent.putExtra( "commodityId",commodityId );   //商品id
                 startActivity( intent );
+                finish();
                 break;
         }
     }

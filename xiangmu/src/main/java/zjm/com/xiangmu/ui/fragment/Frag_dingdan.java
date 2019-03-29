@@ -17,6 +17,11 @@ import butterknife.ButterKnife;
 import butterknife.Unbinder;
 import zjm.com.xiangmu.R;
 
+/*
+* fragment4
+* 全部订单  代付款 待收货  待评价  已完成
+* */
+
 public class Frag_dingdan extends Fragment {
     @BindView(R.id.radiogroup1)
     RadioGroup radiogroup1;

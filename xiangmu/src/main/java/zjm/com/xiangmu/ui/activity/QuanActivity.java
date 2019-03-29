@@ -5,6 +5,10 @@ import android.os.Bundle;
 
 import zjm.com.xiangmu.R;
 
+/*
+* 我的圈子
+* */
+
 public class QuanActivity extends AppCompatActivity {
 
     @Override
