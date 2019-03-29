@@ -41,7 +41,6 @@ import zjm.com.xiangmu.ui.adpter.MyAdapter;
 import zjm.com.xiangmu.ui.adpter.PzshAdapter;
 
 public class Frag_home extends Fragment implements Contract_rxxp.Rxxp_View_Interface {
-
     @BindView(R.id.img_sousuo)
     ImageView img_sousuo;
     Unbinder unbinder;
@@ -51,6 +50,8 @@ public class Frag_home extends Fragment implements Contract_rxxp.Rxxp_View_Inter
     private RecyclerView rv_mlss;
     private RecyclerView rv_pzsh;
     private MZBannerView banner;
+    private String sessionId;
+    private int userId;
 
     @Nullable
     @Override
@@ -61,6 +62,11 @@ public class Frag_home extends Fragment implements Contract_rxxp.Rxxp_View_Inter
         rv_mlss = view.findViewById( R.id.rv_mlss );
         rv_pzsh = view.findViewById( R.id.rv_pzsh );
         banner = view.findViewById( R.id.banner );
+
+        Intent intent = getActivity().getIntent();
+        userId = intent.getIntExtra( "userId", 1 );
+        sessionId = intent.getStringExtra( "sessionId" );
+
 
 
         //当我进入到此页面时,就开始请示网络数据
@@ -108,6 +114,8 @@ public class Frag_home extends Fragment implements Contract_rxxp.Rxxp_View_Inter
                         int commodityId = rxxplist.get( position ).getCommodityId();//得到商品id  跳转详情页面
                         Intent intent = new Intent( getContext(), GoodDetailsActivity.class );
                         intent.putExtra( "commodityId", commodityId );
+                        intent.putExtra( "sessionId", sessionId );
+                        intent.putExtra( "userId",userId );
                         startActivity( intent );
                     }
                 } );
@@ -128,6 +136,8 @@ public class Frag_home extends Fragment implements Contract_rxxp.Rxxp_View_Inter
                         int commodityId = mlsslist.get( position ).getCommodityId();//得到商品id  跳转详情页面
                         Intent intent = new Intent( getContext(), GoodDetailsActivity.class );
                         intent.putExtra( "commodityId", commodityId );
+                        intent.putExtra( "sessionId", sessionId );
+                        intent.putExtra( "userId",userId );
                         startActivity( intent );
                     }
                 } );
@@ -148,6 +158,8 @@ public class Frag_home extends Fragment implements Contract_rxxp.Rxxp_View_Inter
                         int commodityId = pzshlist.get( position ).getCommodityId();//得到商品id  跳转详情页面
                         Intent intent = new Intent( getContext(), GoodDetailsActivity.class );
                         intent.putExtra( "commodityId", commodityId );
+                        intent.putExtra( "sessionId", sessionId );
+                        intent.putExtra( "userId",userId );
                         startActivity( intent );
                     }
                 } );

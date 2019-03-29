@@ -51,7 +51,9 @@
         <activity android:name=".ui.activity.DataActivity" />
         <activity android:name=".ui.activity.FootActivity" />
         <activity android:name=".ui.activity.AddressActivity" />
-        <activity android:name=".ui.activity.QuanActivity"></activity>
+        <activity android:name=".ui.activity.QuanActivity" />
+        <activity android:name=".ui.activity.OkorderActivity" />
+        <activity android:name=".ui.activity.PayActivity"></activity>
     </application>
 
 </manifest>

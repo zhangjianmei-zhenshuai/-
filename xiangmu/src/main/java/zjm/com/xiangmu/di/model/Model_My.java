@@ -1,5 +1,7 @@
 package zjm.com.xiangmu.di.model;
 
+import android.util.Log;
+
 import com.lzy.okgo.OkGo;
 import com.lzy.okgo.callback.StringCallback;
 
@@ -15,8 +17,13 @@ import zjm.com.xiangmu.data.bean.AddressBean;
 import zjm.com.xiangmu.di.contract.ApiServices;
 import zjm.com.xiangmu.di.contract.Contract_My;
 
+/*
+* fragment-我的
+* */
+
 public class Model_My implements Contract_My.Model_Interface {
     @Override
+    //我的钱包
     public void getJson(int userId, String sessionId, final CallBack_Wallet callBack_wallet) {
         OkGo.<String>get( Constant.WALLET_URL )
                 .headers( "userId",userId+"" )
@@ -33,7 +40,7 @@ public class Model_My implements Contract_My.Model_Interface {
     }
 
     @Override
-    //foot
+    //foot足迹
     public void getJson_Foot(int userId, String sessionId, final CallBack_Foot callBack_foot) {
         OkGo.<String>get( Constant.FOOT_URL )
                 .headers( "userId",userId+"" )
@@ -50,7 +57,11 @@ public class Model_My implements Contract_My.Model_Interface {
     }
 
     @Override
-    public void getJson_Address(int userId, String sessionId, final CallBack_Address callBack_address) {
+    //收货地址  Retrofit
+    public void getJson_Address(final int userId, final String sessionId, final CallBack_Address callBack_address) {
+
+        Log.i( "address_userId","userId:"+userId );
+        Log.i( "address_sessionId","sessionId:"+sessionId );
         new Retrofit.Builder()
                 .baseUrl( Constant.QUAN_URL )
                 .addConverterFactory( GsonConverterFactory.create() )

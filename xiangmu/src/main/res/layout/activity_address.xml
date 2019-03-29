@@ -18,6 +18,8 @@
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rv_address"
+        android:layout_marginLeft="22dp"
+        android:layout_marginRight="22dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 

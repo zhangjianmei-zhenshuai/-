@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+确定支付按钮
+-->
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    //圆角-8dp
+    <corners android:radius="7dp"/>
+
+    //补色
+    <solid android:color="#ff5e70"/>
+</shape>

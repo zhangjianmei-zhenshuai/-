@@ -38,5 +38,12 @@ public class Constant {
     //收货地址
     public static final String ADDRESS_URL = "http://mobile.bwstudent.com/small/user/verify/v1/receiveAddressList";
 
+    //创建订单
+    public static final String CREAT_URL = "http://mobile.bwstudent.com/small/order/verify/v1/createOrder";
+
+    //支付
+    public static final String PAY_URL = "http://mobile.bwstudent.com/small/order/verify/v1/pay";
+
+
 
 }

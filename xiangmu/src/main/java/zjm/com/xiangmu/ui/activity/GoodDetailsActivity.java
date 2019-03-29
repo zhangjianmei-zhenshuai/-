@@ -38,6 +38,10 @@ import zjm.com.xiangmu.di.contract.Contract_Detail;
 import zjm.com.xiangmu.di.presenter.Presenter_Detail;
 import zjm.com.xiangmu.ui.adpter.CommentAdapter;
 
+/*
+* 商品详情
+* */
+
 public class GoodDetailsActivity extends AppCompatActivity implements Contract_Detail.Detail_View_Interface {
 
     @BindView(R.id.img_detail_return)
@@ -68,6 +72,13 @@ public class GoodDetailsActivity extends AppCompatActivity implements Contract_D
     ArrayList tupian_list = new ArrayList<>();//图片集合
     private int page = 1;//页数
     private int count = 10;//总数
+    private int userId;
+    private String sessionId;
+    private String[] split;
+    private String commodityName;
+    private String price;
+    private String pic;
+    private int commodityId;
 
 
     @RequiresApi(api = Build.VERSION_CODES.M)
@@ -76,15 +87,17 @@ public class GoodDetailsActivity extends AppCompatActivity implements Contract_D
         super.onCreate( savedInstanceState );
         setContentView( R.layout.activity_gooddetails );
         ButterKnife.bind( this );
-        //接收intent传值commodityId
+
+        //接收intent传值
         Intent intent = getIntent();
-        int commodityId = intent.getIntExtra( "commodityId", 1 );
+        userId = intent.getIntExtra( "userId", 1 );
+        sessionId = intent.getStringExtra( "sessionId" );
+        commodityId = intent.getIntExtra( "commodityId", 1 );
+
         presenter_detail = new Presenter_Detail();        //新建P层
         presenter_detail.attahView( this );        //绑定
         presenter_detail.requestData( commodityId );        //请求数据
         presenter_detail.requestData_Comment( commodityId, page, count );        //请求数据--商品评论
-
-
 
     }
 
@@ -107,6 +120,9 @@ public class GoodDetailsActivity extends AppCompatActivity implements Contract_D
                 DetailBean detailBean = gson.fromJson( message, DetailBean.class );
                 DetailBean.ResultBean detail_list = detailBean.getResult();//数据源
                 String details = detail_list.getDetails();//webview详情页面
+                commodityName = detail_list.getCommodityName();
+                price = detail_list.getPrice() + "";
+
                 tv_detail_name.setText( detail_list.getCommodityName() );//给name赋值
                 tv_detail_price.setText( "￥" + detail_list.getPrice() );//给价格赋值
                 tv_detail_sold.setText( "已售" + detail_list.getSaleNum() + "件" );//销量
@@ -128,7 +144,8 @@ public class GoodDetailsActivity extends AppCompatActivity implements Contract_D
 
                 //设置轮播图片
                 String picture = detail_list.getPicture();
-                String[] split = picture.split( "\\," );
+                split = picture.split( "\\," );
+                pic = split[0].toString();
                 for (int i = 0; i < split.length; i++) {//循环添加图片
                     tupian_list.add( split[i] );
                 }
@@ -174,7 +191,15 @@ public class GoodDetailsActivity extends AppCompatActivity implements Contract_D
                 Toast.makeText( this, "加入", Toast.LENGTH_SHORT ).show();
                 break;
             case R.id.fab_mai:
-                Toast.makeText( this, "购买", Toast.LENGTH_SHORT ).show();
+                //当我点击购买的时候  跳转到确认订单的页面
+                Intent intent = new Intent( GoodDetailsActivity.this, OkorderActivity.class );
+                intent.putExtra( "commodityName",commodityName );//name
+                intent.putExtra( "price",price );   //价格
+                intent.putExtra( "pic",pic );       //图片
+                intent.putExtra( "sessionId",sessionId );
+                intent.putExtra( "userId",userId );
+                intent.putExtra( "commodityId",commodityId );   //商品id
+                startActivity( intent );
                 break;
         }
     }

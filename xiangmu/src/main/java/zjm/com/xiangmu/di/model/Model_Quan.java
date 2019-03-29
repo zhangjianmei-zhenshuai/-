@@ -19,6 +19,10 @@ import zjm.com.xiangmu.data.bean.QuanziBean;
 import zjm.com.xiangmu.di.contract.ApiServices;
 import zjm.com.xiangmu.di.contract.Contract_Quan;
 
+/*
+* 圈子列表
+* */
+
 public class Model_Quan implements Contract_Quan.Quan_Model_Interface {
     @Override
     public void getJson(int userId, String sessionId, final CallBack_Quan callBack_quan) {
