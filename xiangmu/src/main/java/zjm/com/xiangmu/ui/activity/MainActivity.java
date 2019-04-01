@@ -259,6 +259,6 @@ public class MainActivity extends AppCompatActivity implements Contract_Login.Lo
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        APP.getRefWatcher().watch(this);//内存检测
+//        APP.getRefWatcher().watch(this);//内存检测
     }
 }

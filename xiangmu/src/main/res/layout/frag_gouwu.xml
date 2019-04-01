@@ -20,6 +20,7 @@
         android:layout_width="match_parent"
         android:layout_height="50dp">
         <CheckBox
+            android:id="@+id/cb_qx"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
@@ -34,13 +35,14 @@
             android:layout_gravity="center_vertical"
             android:text="合计:"/>
         <TextView
+            android:id="@+id/tv_cart_num"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:textSize="16sp"
             android:textColor="#ff0606"
             android:layout_gravity="center_vertical"
-            android:text="￥:1360"/>
+            android:text="￥:0"/>
         <TextView
             android:id="@+id/btn_account"
             android:layout_width="118dp"

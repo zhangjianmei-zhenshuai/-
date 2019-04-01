@@ -20,8 +20,8 @@ public class APP extends Application {
         LogUtil.init(getApplicationContext());//Log
 
         //泄漏检测
-        instance = this;
-        mRefWatcher = Constants.DEBUG ?  LeakCanary.install(this) : RefWatcher.DISABLED;
+        /*instance = this;
+        mRefWatcher = Constants.DEBUG ?  LeakCanary.install(this) : RefWatcher.DISABLED;*/
 
         Fresco.initialize( this );//初始化Fresco  上下文&build
 

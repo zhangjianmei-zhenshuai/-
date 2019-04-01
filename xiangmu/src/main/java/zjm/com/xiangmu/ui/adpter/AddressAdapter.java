@@ -23,7 +23,5 @@ public class AddressAdapter extends BaseQuickAdapter<AddressBean.ResultBean,Base
         helper.setText( R.id.tv_address_name,item.getRealName() );//name
         helper.setText( R.id.tv_address_address,item.getAddress() );//地址
         helper.setText( R.id.tv_address_zipCode,item.getZipCode() );//邮编
-
-
     }
 }

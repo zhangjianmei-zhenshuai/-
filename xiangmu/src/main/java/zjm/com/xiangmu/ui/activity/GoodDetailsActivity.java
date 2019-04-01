@@ -24,6 +24,7 @@ import com.zhouwei.mzbanner.MZBannerView;
 import com.zhouwei.mzbanner.holder.MZHolderCreator;
 import com.zhouwei.mzbanner.holder.MZViewHolder;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -34,6 +35,7 @@ import zjm.com.xiangmu.R;
 import zjm.com.xiangmu.data.bean.Cart_Bean;
 import zjm.com.xiangmu.data.bean.CommentBean;
 import zjm.com.xiangmu.data.bean.DetailBean;
+import zjm.com.xiangmu.data.bean.Order_Shop_Bean;
 import zjm.com.xiangmu.data.bean.ShoppingBeanAdd;
 import zjm.com.xiangmu.data.bean.Sync_Bean;
 import zjm.com.xiangmu.di.contract.Contract_Detail;
@@ -231,12 +233,12 @@ public class GoodDetailsActivity extends AppCompatActivity implements Contract_D
             case R.id.fab_mai:
                 //当我点击购买的时候  跳转到确认订单的页面
                 Intent intent = new Intent( GoodDetailsActivity.this, OkorderActivity.class );
-                intent.putExtra( "commodityName",commodityName );//name
-                intent.putExtra( "price",price );   //价格
-                intent.putExtra( "pic",pic );       //图片
                 intent.putExtra( "sessionId",sessionId );
                 intent.putExtra( "userId",userId );
-                intent.putExtra( "commodityId",commodityId );   //商品id
+                intent.putExtra( "commodityId",commodityId );
+                ArrayList<Order_Shop_Bean> shop_list = new ArrayList<>();
+                shop_list.add( new Order_Shop_Bean( pic,commodityName,price ) );
+                intent.putExtra( "shop_list",(Serializable) shop_list );
                 startActivity( intent );
                 finish();
                 break;
