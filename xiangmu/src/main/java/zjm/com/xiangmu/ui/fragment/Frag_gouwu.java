@@ -212,13 +212,13 @@ public class Frag_gouwu extends Fragment implements Contract_Detail.Detail_View_
                 int sum=0;
                 for (int i = 0; i < cart_list.size(); i++) {
                     if (cart_list.get( i ).isMy_checkbox()) {
-                        shop_list.add( new Order_Shop_Bean( cart_list.get( i ).getPic(),cart_list.get( i ).getCommodityName(),cart_list.get( i ).getPrice()+"" ) );
+                        shop_list.add( new Order_Shop_Bean( cart_list.get( i ).getPic(),cart_list.get( i ).getCommodityName(),cart_list.get( i ).getPrice()+"",cart_list.get( i ).getCommodityId() ) );
                         //得到商品id
                         commodityId = cart_list.get( i ).getCommodityId();
                         sum++;
                     }
                 }
-                Toast.makeText( getActivity(), ""+commodityId, Toast.LENGTH_SHORT ).show();
+                //Toast.makeText( getActivity(), ""+commodityId, Toast.LENGTH_SHORT ).show();
                 if (sum==0){
                     Toast.makeText( getActivity(), "至少选择一件商品", Toast.LENGTH_SHORT ).show();
                 }else {

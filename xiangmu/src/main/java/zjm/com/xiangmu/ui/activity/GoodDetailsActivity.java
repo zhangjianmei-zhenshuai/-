@@ -237,7 +237,7 @@ public class GoodDetailsActivity extends AppCompatActivity implements Contract_D
                 intent.putExtra( "userId",userId );
                 intent.putExtra( "commodityId",commodityId );
                 ArrayList<Order_Shop_Bean> shop_list = new ArrayList<>();
-                shop_list.add( new Order_Shop_Bean( pic,commodityName,price ) );
+                shop_list.add( new Order_Shop_Bean( pic,commodityName,price,commodityId ) );
                 intent.putExtra( "shop_list",(Serializable) shop_list );
                 startActivity( intent );
                 finish();

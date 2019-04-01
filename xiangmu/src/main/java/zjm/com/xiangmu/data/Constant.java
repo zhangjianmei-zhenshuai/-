@@ -50,5 +50,8 @@ public class Constant {
     //同步购物车
     public static final String SYNC_URL = "http://mobile.bwstudent.com/small/order/verify/v1/syncShoppingCart";
 
+    //订单查询
+    public static final String FIND_URL = "http://mobile.bwstudent.com/small/order/verify/v1/findOrderListByStatus";
+
 
 }

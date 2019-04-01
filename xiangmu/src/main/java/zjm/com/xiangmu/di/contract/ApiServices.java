@@ -11,6 +11,7 @@ import retrofit2.http.PUT;
 import retrofit2.http.Query;
 import zjm.com.xiangmu.data.bean.AddressBean;
 import zjm.com.xiangmu.data.bean.Cart_Bean;
+import zjm.com.xiangmu.data.bean.Find_Bean;
 import zjm.com.xiangmu.data.bean.Order_Bean;
 import zjm.com.xiangmu.data.bean.Pay_Bean;
 import zjm.com.xiangmu.data.bean.QuanziBean;
@@ -40,5 +41,9 @@ public interface ApiServices {
     //同步购物车数据
     @PUT("small/order/verify/v1/syncShoppingCart")
     Observable<Sync_Bean> getSync (@Header( "userId" ) int userId, @Header( "sessionId" ) String sessionId,@Query( "data" ) String data);
+
+    //查询订单
+    @GET("small/order/verify/v1/findOrderListByStatus")
+    Observable<Find_Bean> getDaiFu (@Header( "userId" ) int userId, @Header( "sessionId" ) String sessionId,@Query( "status" )int status,@Query( "page" )int page,@Query( "count" )int count);
 
 }

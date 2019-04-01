@@ -42,9 +42,10 @@ public class OkorderActivity extends AppCompatActivity implements Contract_My.Vi
     private int userId;
     private String sessionId;
     private Presenter_My presenter_my;
-    private int commodityId;
     private int address_id;
     private int ordernum;//需付款金额
+    private int commodityId;
+    private List<Order_Shop_Bean> shop_list;
 
 
     @Override
@@ -57,11 +58,15 @@ public class OkorderActivity extends AppCompatActivity implements Contract_My.Vi
         Intent intent = getIntent();
         userId = intent.getIntExtra( "userId", 1 );
         sessionId = intent.getStringExtra( "sessionId" );
-        commodityId = intent.getIntExtra( "commodityId", 1 );//商品id
         //购物车集合
-        List<Order_Shop_Bean> shop_list = (List<Order_Shop_Bean>) intent.getSerializableExtra( "shop_list" );
-        Toast.makeText( this, "集合的长度为:"+shop_list.size(), Toast.LENGTH_SHORT ).show();
-        //设置布局管理器
+        shop_list = (List<Order_Shop_Bean>) intent.getSerializableExtra( "shop_list" );
+        //得到商品id
+        for (int i = 0; i < shop_list.size(); i++) {
+            commodityId = shop_list.get( i ).getCommodityId();
+            //Toast.makeText( this, "商品id:"+ shop_list.get( i ).getCommodityId(), Toast.LENGTH_SHORT ).show();
+        }
+
+        //设置布局管理器--要购买的商品
         LinearLayoutManager layoutManager = new LinearLayoutManager( OkorderActivity.this, LinearLayoutManager.VERTICAL, false );
         rv_oorder_shop.setLayoutManager( layoutManager );
         //设置适配器
@@ -73,11 +78,11 @@ public class OkorderActivity extends AppCompatActivity implements Contract_My.Vi
         presenter_my.requestData_Address( userId, sessionId );//请求收货地址数据
 
         //得到付款的价格
-        for (int i = 0; i <shop_list.size() ; i++) {
+        for (int i = 0; i < shop_list.size() ; i++) {
             int price = Integer.valueOf( shop_list.get( i ).getPrice() ) ;
             ordernum+=price;
         }
-        tv_OrderNum.setText( "共1件商品,需支付"+ordernum+"元" );//赋值
+        tv_OrderNum.setText( "共"+shop_list.size()+"件商品,需支付"+ordernum+"元" );//赋值
     }
 
     @Override
@@ -130,6 +135,7 @@ public class OkorderActivity extends AppCompatActivity implements Contract_My.Vi
             intent.putExtra( "address_id", address_id );//收货id
             intent.putExtra( "sessionId", sessionId );
             intent.putExtra( "userId", userId );
+            intent.putExtra( "shop_list",(Serializable) shop_list );
             intent.putExtra( "commodityId", commodityId );
             startActivity( intent );
             finish();

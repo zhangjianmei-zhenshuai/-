@@ -78,11 +78,11 @@ public class Frag_dingdan extends Fragment {
                         break;
                     case R.id.radio8:
                         //显示对应页面
-                        transaction1.show( order_daiping ).hide( order_daifu ).hide( order_all ).hide( order_daishou ).hide( order_yiwan );
+                        transaction1.show( order_daishou).hide( order_daifu ).hide( order_all ).hide( order_daiping ).hide( order_yiwan );
                         break;
                     case R.id.radio9:
                         //显示对应页面
-                        transaction1.show( order_daishou ).hide( order_daifu ).hide( order_daiping ).hide( order_all ).hide( order_yiwan );
+                        transaction1.show( order_daiping  ).hide( order_daifu ).hide( order_daishou ).hide( order_all ).hide( order_yiwan );
                         break;
                     case R.id.radio10:
                         //显示对应页面

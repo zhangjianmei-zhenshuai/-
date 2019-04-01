@@ -10,12 +10,13 @@ public class Order_Shop_Bean implements Serializable {
     private String pic;//图片
     private String commodityName;//商品名称
     private String price;//价格
-    
+    private int commodityId;//商品id
 
-    public Order_Shop_Bean(String pic, String commodityName, String price) {
+    public Order_Shop_Bean(String pic, String commodityName, String price, int commodityId) {
         this.pic = pic;
         this.commodityName = commodityName;
         this.price = price;
+        this.commodityId = commodityId;
     }
 
     public String getPic() {
@@ -40,5 +41,13 @@ public class Order_Shop_Bean implements Serializable {
 
     public void setPrice(String price) {
         this.price = price;
+    }
+
+    public int getCommodityId() {
+        return commodityId;
+    }
+
+    public void setCommodityId(int commodityId) {
+        this.commodityId = commodityId;
     }
 }
